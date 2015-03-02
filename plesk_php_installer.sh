@@ -5,6 +5,9 @@
  
 URL=$1
 NAME=$2
+
+# Install devel-libs, if not installed
+yum install libxml2-devel openssl-devel bzip2-devel curl-devel libpng-devel libjpeg-devel libtiff-devel libxslt-devel aspell-devel net-snmp-devel readline-devel unixODBC-devel libicu-devel libc-client-devel freetype-devel libXpm-devel libvpx-devel enchant-devel gmp-devel db4-devel openldap-devel postgresql-devel sqlite-devel aspell-devel pcre-devel t1lib-devel.x86_64 libmcrypt-devel.x86_64 libtidy libtidy-devel mysql-devel
  
 #Getting PHP
 wget $1 -O /usr/local/src/$2.tar.gz
@@ -30,4 +33,4 @@ cp -a /etc/php.ini /usr/local/$2/etc/php.ini
 sed -i "s#;date.timezone =#date.timezone = $timezone#" /usr/local/$2/etc/php.ini
  
 # Register new PHP version in Plesk
-/usr/local/psa/bin/php_handler --add -displayname "$2" -path /usr/local/$2/bin/php-cgi -phpini /usr/local/$2/etc/php.ini -type fastcgi -id "fastcgi-5
+/usr/local/psa/bin/php_handler --add -displayname "$2" -path /usr/local/$2/bin/php-cgi -phpini /usr/local/$2/etc/php.ini -type fastcgi -id "fastcgi-5i"
